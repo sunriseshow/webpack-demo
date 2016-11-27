@@ -31,6 +31,9 @@ module.exports = {
     postcss: [
         require('autoprefixer'),
     ],
+    plugins: [
+        new webpack.BannerPlugin("Copyright Flying Unicorns inc."),//在这个数组中new一个就可以了
+    ],
     devServer: {
         contentBase: "./public",//本地服务器所加载的页面所在的目录
         colors: true,//终端中输出结果为彩色
