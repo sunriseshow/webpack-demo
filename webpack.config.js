@@ -1,3 +1,6 @@
+var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     // source-map,具有最好的source map，但是它会减慢打包文件的构建速度；
     // cheap-module-source-map	, 提高项目构建速度，但只能对应到具体的行，
@@ -32,7 +35,7 @@ module.exports = {
         require('autoprefixer'),
     ],
     plugins: [
-        new webpack.BannerPlugin("Copyright Flying Unicorns inc."),//在这个数组中new一个就可以了
+        new HtmlWebpackPlugin({template: __dirname + '/app/index.tmpl.html'}),
     ],
     devServer: {
         contentBase: "./public",//本地服务器所加载的页面所在的目录
