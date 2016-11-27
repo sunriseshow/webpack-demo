@@ -22,6 +22,10 @@ module.exports = {
                 exclude: '/node_modules/',
                 loader: 'babel',
             },
+            {
+                test: /\.css$/,
+                loader: 'style!css', //感叹号的作用在于使同一文件能够使用不同类型的loader
+            },
         ]
     },
 
