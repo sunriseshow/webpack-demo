@@ -1,7 +1,7 @@
 {
   "name": "webpack-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "a very very simple webpack demo",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --watch --config webpack.config.js --colors --progress",

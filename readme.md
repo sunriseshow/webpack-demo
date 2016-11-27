@@ -1,4 +1,4 @@
-### webpack demo
+### a very very simple webpack demo
 
 ### Installation
 
