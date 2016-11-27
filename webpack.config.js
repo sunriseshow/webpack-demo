@@ -36,6 +36,7 @@ module.exports = {
     ],
     plugins: [
         new HtmlWebpackPlugin({template: __dirname + '/app/index.tmpl.html'}),
+        new webpack.HotModuleReplacementPlugin()//热加载插件
     ],
     devServer: {
         contentBase: "./public",//本地服务器所加载的页面所在的目录
