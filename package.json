@@ -4,8 +4,9 @@
   "description": "a very very simple webpack demo",
   "main": "index.js",
   "scripts": {
+    "start": "webpack --config webpack.config.js --colors --progress",
     "dev": "webpack --watch --config webpack.config.js --colors --progress",
-    "build": "webpack --config webpack.config.js --colors --progress",
+    "build": "webpack --config webpack.production.config.js --colors --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
