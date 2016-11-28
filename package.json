@@ -9,7 +9,7 @@
     "build": "rm -rf build/* && webpack --config webpack.production.config.js --colors --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["webpack", "babel", "react"],
   "author": "",
   "license": "ISC",
   "devDependencies": {
