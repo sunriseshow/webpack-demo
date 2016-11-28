@@ -26,8 +26,8 @@ module.exports = {
                 loader: 'babel',
             },
             {
-                test: /\.css$/,
-                loader: 'style!css?modules!postcss', //感叹号的作用在于使同一文件能够使用不同类型的loader
+                test: /\.scss$/,
+                loader: 'style!css?modules!sass-loader!postcss', //感叹号的作用在于使同一文件能够使用不同类型的loader
             },
         ]
     },
@@ -36,7 +36,7 @@ module.exports = {
     ],
     plugins: [
         new HtmlWebpackPlugin({template: __dirname + '/app/index.tmpl.html'}),
-        new webpack.HotModuleReplacementPlugin()//热加载插件
+        new webpack.HotModuleReplacementPlugin(),//热加载插件
     ],
     devServer: {
         contentBase: "./public",//本地服务器所加载的页面所在的目录
