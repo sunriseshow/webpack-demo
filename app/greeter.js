@@ -1,7 +1,7 @@
 // Greeter.js
 import React, {Component} from 'react';
 var config = require('./config.json');
-import styles from './greeter.scss';//导入
+import styles from './greeter.css';//导入
 class Greeter extends Component{
   render() {
     return (

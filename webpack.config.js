@@ -1,6 +1,5 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var PluginExtractText = require('extract-text-webpack-plugin');
 
 module.exports = {
     // source-map,具有最好的source map，但是它会减慢打包文件的构建速度；
@@ -27,19 +26,17 @@ module.exports = {
                 loader: 'babel',
             },
             {
-                test: /\.scss$/,
-                loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader', //感叹号的作用在于使同一文件能够使用不同类型的loader
-            },
-            {
                 test: /\.css$/,
-                loader: PluginExtractText.extract('style-loader', 'css-loader'),
-            }
+                loader: 'style!css?modules!postcss', //感叹号的作用在于使同一文件能够使用不同类型的loader
+            },
         ]
     },
+    postcss: [
+        require('autoprefixer'),
+    ],
     plugins: [
         new HtmlWebpackPlugin({template: __dirname + '/app/index.tmpl.html'}),
-        new webpack.HotModuleReplacementPlugin(),//热加载插件
-        new PluginExtractText("[name]-[hash].css"),
+        new webpack.HotModuleReplacementPlugin()//热加载插件
     ],
     devServer: {
         contentBase: "./public",//本地服务器所加载的页面所在的目录

@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var PluginExtractText = require('extract-text-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: __dirname + "/app/main.js",
@@ -21,15 +21,14 @@ module.exports = {
         loader: 'babel'
       },
       {
-        test: /\.scss$/,
-        loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader',
-      },
-      {
         test: /\.css$/,
-        loader: PluginExtractText.extract('style-loader', 'css-loader'),
+        loader: ExtractTextPlugin.extract('style', 'css?modules!postcss'),
       }
     ]
   },
+  postcss: [
+    require('autoprefixer')
+  ],
 
   plugins: [
     new webpack.DefinePlugin({
@@ -42,7 +41,7 @@ module.exports = {
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin(),
-    new PluginExtractText("[name]-[hash].css"),
+    new ExtractTextPlugin("[name]-[hash].css"),
     new webpack.HotModuleReplacementPlugin(), //热加载插件
   ],
 
